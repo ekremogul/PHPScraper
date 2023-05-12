@@ -1,0 +1,74 @@
+{
+    "name": "ekremogul/phpscraper",
+    "description": "PHP Scraper For Laravel",
+    "keywords": [
+        "ekremogul",
+        "laravel",
+        "phpscraper"
+    ],
+    "homepage": "https://github.com/ekremogul/phpscraper",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ekrem OĞUL",
+            "email": "ekremogul@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "spatie/laravel-package-tools": "^1.14.0",
+        "illuminate/contracts": "^10.0",
+        "league/uri": "^6.8.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^7.9",
+        "nunomaduro/larastan": "^2.0.1",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-arch": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "spatie/laravel-ray": "^1.26"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ekremogul\\PHPScraper\\": "src/",
+            "Ekremogul\\PHPScraper\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ekremogul\\PHPScraper\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ekremogul\\PHPScraper\\PHPScraperServiceProvider"
+            ],
+            "aliases": {
+                "PHPScraper": "Ekremogul\\PHPScraper\\Facades\\PHPScraper"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
